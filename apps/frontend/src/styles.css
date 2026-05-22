@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* ChordSheetJS 和弦譜樣式 */
+.chord-sheet .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.chord-sheet .column {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.chord-sheet .chord {
+  color: #60a5fa; /* blue-400 */
+  font-weight: 600;
+  min-height: 1.4rem;
+  white-space: pre;
+}
+
+.chord-sheet .lyrics {
+  color: #e5e7eb; /* gray-200 */
+  white-space: pre;
+}
+
+.chord-sheet .paragraph {
+  margin-bottom: 1.5rem;
+}
+

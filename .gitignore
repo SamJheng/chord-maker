@@ -1,0 +1,20 @@
+# Nx
+.nx/cache
+.nx/workspace-data
+.nx/polygraph
+
+# Claude
+.claude/worktrees
+.claude/settings.local.json
+
+# Vite
+vite.config.*.timestamp*
+
+# Environment variables (含密碼，不上 git)
+.env
+
+# Dependencies
+node_modules
+
+# Build output
+dist
