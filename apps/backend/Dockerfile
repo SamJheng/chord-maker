@@ -1,5 +1,5 @@
 # ── Stage 1: Build ──────────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /workspace
 
@@ -12,7 +12,10 @@ COPY . .
 RUN npx nx build backend
 
 # ── Stage 2: Production image ────────────────────────────────────
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
+
+# Patch Alpine packages to fix known OS-level CVEs
+RUN apk upgrade --no-cache
 
 WORKDIR /app
 

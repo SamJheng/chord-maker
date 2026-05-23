@@ -1,5 +1,5 @@
 # ── Stage 1: Build ──────────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /workspace
 
@@ -13,6 +13,9 @@ RUN npx nx build frontend
 
 # ── Stage 2: Serve with nginx ────────────────────────────────────
 FROM nginx:alpine AS runner
+
+# Patch Alpine packages to fix known OS-level CVEs
+RUN apk upgrade --no-cache
 
 # Copy built static files
 COPY --from=builder /workspace/dist/apps/frontend /usr/share/nginx/html
