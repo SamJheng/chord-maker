@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "flyonui";
 
 /* ChordSheetJS 和弦譜樣式 */
 .chord-sheet .row {
@@ -27,4 +28,3 @@
 .chord-sheet .paragraph {
   margin-bottom: 1.5rem;
 }
-
