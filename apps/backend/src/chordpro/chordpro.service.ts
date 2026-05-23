@@ -15,12 +15,22 @@ export class ChordProService {
       const normalize = (v: string | string[] | null | undefined): string | null =>
         Array.isArray(v) ? v.join(', ') : (v ?? null);
 
+      // 提取 {define} 和弦指法定義
+      const rawDefs: Record<string, any> = song.chordDefinitions?.definitions ?? {};
+      const definitions = Object.values(rawDefs).map((d: any) => ({
+        name: d.name as string,
+        baseFret: (d.baseFret as number) ?? 1,
+        frets: (d.frets as (number | 'x')[]) ?? [],
+        fingers: (d.fingers as number[]) ?? [],
+      }));
+
       return {
         title: normalize(song.title),
         artist: normalize(song.artist),
         key: normalize(song.key),
         text: textFormatter.format(song),
         html: htmlFormatter.format(song),
+        definitions,
       };
     } catch (err) {
       throw new BadRequestException('Invalid ChordPro format');
