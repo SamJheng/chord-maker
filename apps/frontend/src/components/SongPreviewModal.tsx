@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { SongSummary } from 'shared';
 import { getSong } from '../api/songs.api';
 import { parseChordPro, type ParseResult } from '../api/chordpro.api';
-import { ChordDiagram } from './ChordDiagram';
+import { ChordDiagram } from '@chord-maker/ui';
 
 interface Props {
   song: SongSummary | null;

@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "shared": ["./libs/shared/src/index.ts"]
+      "shared": ["./libs/shared/src/index.ts"],
+      "@chord-maker/ui": ["./libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
