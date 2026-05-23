@@ -27,6 +27,7 @@ services:
     container_name: chord-maker-backend
     restart: unless-stopped
     environment:
+      NODE_ENV: production
       PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-chordmaker}:${POSTGRES_PASSWORD:-chordmaker}@postgres:5432/${POSTGRES_DB:-chordmaker}
     ports:
