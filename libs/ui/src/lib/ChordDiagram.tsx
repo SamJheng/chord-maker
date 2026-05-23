@@ -37,36 +37,36 @@ function buildSvg(def: ChordDefinition): string {
   const parts: string[] = [];
 
   // 和弦名稱
-  parts.push(text(W / 2, 13, name, 'middle', 13, true));
+  parts.push(text(W / 2, 13, name, 'middle', 13, true, '#ffffff'));
 
   // 空弦 / 悶音標記（在格架正上方）
   frets.forEach((fret, i) => {
     const x = ML + i * SS;
     if (fret === 'x') {
-      parts.push(text(x, MT - 5, '✕', 'middle', 10, false, '#555'));
+      parts.push(text(x, MT - 5, '✕', 'middle', 10, false, '#ffffff'));
     } else if (fret === 0) {
-      parts.push(`<circle cx="${x}" cy="${MT - 9}" r="4" fill="none" stroke="#666" stroke-width="1.2"/>`);
+      parts.push(`<circle cx="${x}" cy="${MT - 9}" r="4" fill="none" stroke="#ffffff" stroke-width="1.2"/>`);
     }
   });
 
   // 琴枕（baseFret=1 時）
   if (hasNut) {
-    parts.push(`<rect x="${ML}" y="${MT}" width="${GRID_W}" height="4" rx="1" fill="#333"/>`);
+    parts.push(`<rect x="${ML}" y="${MT}" width="${GRID_W}" height="4" rx="1" fill="rgba(255,255,255,0.9)"/>`);
   } else {
     // 品格位置文字
-    parts.push(text(ML - 4, gridTop + FS * 0.5 + 4, `${baseFret}fr`, 'end', 9));
+    parts.push(text(ML - 4, gridTop + FS * 0.5 + 4, `${baseFret}fr`, 'end', 9, false, '#ffffff'));
   }
 
   // 品格橫線
   for (let f = 0; f <= FRETS; f++) {
     const y = gridTop + f * FS;
-    parts.push(`<line x1="${ML}" y1="${y}" x2="${ML + GRID_W}" y2="${y}" stroke="#bbb" stroke-width="${f === 0 && !hasNut ? 1.5 : 1}"/>`);
+    parts.push(`<line x1="${ML}" y1="${y}" x2="${ML + GRID_W}" y2="${y}" stroke="rgba(255,255,255,0.3)" stroke-width="${f === 0 && !hasNut ? 1.5 : 1}"/>`);
   }
 
   // 弦（縱線）
   for (let s = 0; s < STRINGS; s++) {
     const x = ML + s * SS;
-    parts.push(`<line x1="${x}" y1="${gridTop}" x2="${x}" y2="${gridTop + GRID_H}" stroke="#666" stroke-width="1.2"/>`);
+    parts.push(`<line x1="${x}" y1="${gridTop}" x2="${x}" y2="${gridTop + GRID_H}" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>`);
   }
 
   // 偵測橫按 (barre)
