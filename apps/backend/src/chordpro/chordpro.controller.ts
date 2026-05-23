@@ -1,7 +1,10 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { IsNotEmpty, IsString } from 'class-validator';
 import { ChordProService } from './chordpro.service';
 
 class ParseChordProDto {
+  @IsString()
+  @IsNotEmpty()
   content!: string;
 }
 

@@ -5,9 +5,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import type { CreateSongDto, Timestamps } from 'shared';
 
 @Entity('songs')
-export class Song {
+export class Song implements CreateSongDto, Timestamps<Date> {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
@@ -18,10 +19,13 @@ export class Song {
   artist!: string;
 
   @Column({ nullable: true })
-  key!: string; // 調性，例如 C, Am, G
+  key!: string;
 
   @Column({ nullable: true })
   bpm!: number;
+
+  @Column({ type: 'text', nullable: true })
+  content!: string;
 
   @CreateDateColumn()
   createdAt!: Date;
