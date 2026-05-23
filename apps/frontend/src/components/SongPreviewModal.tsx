@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { SongSummary } from 'shared';
 import { getSong } from '../api/songs.api';
 import { parseChordPro, type ParseResult } from '../api/chordpro.api';
-import { ChordDiagram } from '@chord-maker/ui';
+import { ChordProPreview } from '@chord-maker/ui';
 
 interface Props {
   song: SongSummary | null;
@@ -79,26 +79,7 @@ export function SongPreviewModal({ song, onClose }: Props) {
           )}
 
           {!loading && !error && preview && (
-            <>
-              {/* 和弦指法圖 */}
-              {preview.definitions.length > 0 && (
-                <div className="mb-5">
-                  <p className="text-xs text-base-content/50 mb-2 uppercase tracking-wider">和弦指法</p>
-                  <div className="flex flex-wrap gap-3">
-                    {preview.definitions.map((def) => (
-                      <ChordDiagram key={def.name} definition={def} />
-                    ))}
-                  </div>
-                  <div className="divider my-3" />
-                </div>
-              )}
-
-              {/* 歌譜內容 */}
-              <div
-                className="chord-sheet font-mono text-sm leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: preview.html }}
-              />
-            </>
+            <ChordProPreview preview={preview} />
           )}
         </div>
       </div>

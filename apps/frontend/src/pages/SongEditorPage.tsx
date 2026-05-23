@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import { ChordProPreview } from '@chord-maker/ui';
 import { useSongEditor } from '../hooks/useSongEditor';
 
 export function SongEditorPage() {
@@ -148,11 +149,7 @@ export function SongEditorPage() {
                     )}
                   </div>
 
-                  {/* Chord sheet */}
-                  <div
-                    className="chord-sheet font-mono text-sm leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: preview.html }}
-                  />
+                  <ChordProPreview preview={preview} />
                 </div>
               )}
             </div>
