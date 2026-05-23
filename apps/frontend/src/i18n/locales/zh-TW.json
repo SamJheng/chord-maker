@@ -1,0 +1,19 @@
+{
+  "common": {
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "save": "儲存",
+    "cancel": "取消",
+    "confirm": "確認"
+  },
+  "chordPro": {
+    "title": "Chord Maker",
+    "subtitle": "輸入 ChordPro 格式，產生吉他譜",
+    "inputLabel": "ChordPro 內容",
+    "inputPlaceholder": "{title: 歌名}\n{key: C}\n\n[C]歌詞[Am]歌詞",
+    "parseButton": "解析吉他譜",
+    "parsing": "解析中...",
+    "resultTitle": "吉他譜",
+    "key": "調性"
+  }
+}

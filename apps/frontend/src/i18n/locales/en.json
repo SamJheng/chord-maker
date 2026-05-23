@@ -1,0 +1,19 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "chordPro": {
+    "title": "Chord Maker",
+    "subtitle": "Enter ChordPro format to generate chord sheet",
+    "inputLabel": "ChordPro Content",
+    "inputPlaceholder": "{title: Song Title}\n{key: C}\n\n[C]Lyrics[Am]Lyrics",
+    "parseButton": "Parse Chord Sheet",
+    "parsing": "Parsing...",
+    "resultTitle": "Chord Sheet",
+    "key": "Key"
+  }
+}

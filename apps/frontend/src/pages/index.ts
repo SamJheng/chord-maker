@@ -1,0 +1,1 @@
+export { ChordProPage } from './ChordProPage';

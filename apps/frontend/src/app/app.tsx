@@ -1,7 +1,7 @@
-import { ChordProPage } from './ChordProPage';
+import { AppRouter } from '../router';
 
 export function App() {
-  return <ChordProPage />;
+  return <AppRouter />;
 }
 
 export default App;
