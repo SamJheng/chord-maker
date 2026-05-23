@@ -1,12 +1,5 @@
 import { useState } from 'react';
-
-interface ParseResult {
-  title: string | null;
-  artist: string | null;
-  key: string | null;
-  text: string;
-  html: string;
-}
+import { parseChordPro, type ParseResult } from '../api';
 
 const DEFAULT_CONTENT = `{title: 讓我留在你身邊}
 {artist: 陳奕迅}
@@ -28,13 +21,7 @@ export function ChordProPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/chordpro/parse', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content }),
-      });
-      if (!res.ok) throw new Error(`Error ${res.status}`);
-      const data = await res.json();
+      const data = await parseChordPro(content);
       setResult(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : '發生錯誤');
