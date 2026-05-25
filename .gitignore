@@ -28,3 +28,5 @@ coverage
 # Logs
 apps/backend/logs
 vitest.config.*.timestamp*
+# Database backups
+backups/
